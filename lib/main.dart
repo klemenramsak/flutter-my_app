@@ -6,6 +6,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  void answerQuestion() {
+    print("Answer chosen");
+  }
+
   @override
   Widget build(BuildContext context) {
     var questions = [
@@ -18,11 +22,18 @@ class MyApp extends StatelessWidget {
           title: const Text("My first App"),
         ),
         body: Column(
-          children: const [
-            Text("The question"),
-            ElevatedButton(onPressed: null, child: Text("Answer 1")),
-            ElevatedButton(onPressed: null, child: Text("Answer 2")),
-            ElevatedButton(onPressed: null, child: Text("Answer 3")),
+          children: [
+            const Text("The question"),
+            ElevatedButton(
+                onPressed: answerQuestion, child: const Text("Answer 1")),
+            ElevatedButton(
+                onPressed: () => print("Answer 2 chosen"),
+                child: const Text("Answer 2")),
+            ElevatedButton(
+                onPressed: () {
+                  print("Answer 3 chosen");
+                },
+                child: const Text("Answer 3")),
           ],
         ),
       ),
